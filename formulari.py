@@ -320,9 +320,9 @@ if submitted:
         detalls_parts.append("Etiquetes: " + ", ".join(tags))
     if description.strip():
         detalls_parts.append(description.strip())
-    detalles_finals = ". ".join(detalls_parts)
+    detalls_finals = ". ".join(detalls_parts)
 
-    colores_canonicos = [COLORS_MAP[c] for c in colors_selected]
+    colors_canonics = [COLORS_MAP[c] for c in colors_selected]
     linies_canoniques = [f"BUS_{l}" for l in lines] if transport == "Bus" else lines
 
     if not category:
@@ -335,10 +335,10 @@ if submitted:
         registre = {
             "categoria": category,
             "subcategoria": subcategory,
-            "colores": colores_canonicos,
+            "colors": colors_canonics,
             "marca": brand.strip() if brand.strip() else None,
-            "detalles": detalles_finals,
-            "linea": linies_canoniques,
+            "detalls": detalls_finals,
+            "linia": linies_canoniques,
             "dia_de_perdua": str(loss_date),
             "contacte": {
                 "email": contact_email.strip(),
