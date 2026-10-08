@@ -18,28 +18,20 @@ METRO_LINES = [
 ]
 
 BUS_LINES = [
-    # Línies Diagonals (D)
-    "D20", "D40", "D50",
-    # Línies Horitzontals (H)
-    "H2", "H4", "H6", "H8", "H10", "H12", "H14", "H16",
-    # Línies Verticals (V)
+    "D20", "D40", "D50", "H2", "H4", "H6", "H8", "H10", "H12", "H14", "H16",
     "V1", "V3", "V5", "V7", "V9", "V11", "V13", "V15", "V17", "V19",
-    "V21", "V23", "V25", "V27", "V29", "V31", "V33",
-    # Línies Exprés (X)
-    "X1", "X2", "X3",
-    # Línies convencionals
+    "V21", "V23", "V25", "V27", "V29", "V31", "V33", "X1", "X2", "X3",
     "6", "7", "13", "19", "22", "23", "24", "27", "33", "34", "39",
     "46", "47", "54", "55", "59", "60", "62", "63", "65", "67", "68",
-    "70", "76", "78", "94", "95", "96", "97",
-    # Línies de proximitat / Bus del Barri
-    "107", "109", "112", "113", "114", "115", "116", "117", "118", "119",
-    "120", "121", "122", "123", "124", "125", "126", "127", "128", "129",
-    "130", "131", "132", "133", "134", "136", "141", "150", "157", "175",
-    "180", "182", "183", "185", "191", "192", "196"
+    "70", "76", "78", "94", "95", "96", "97", "107", "109", "112", "113",
+    "114", "115", "116", "117", "118", "119", "120", "121", "122", "123",
+    "124", "125", "126", "127", "128", "129", "130", "131", "132", "133",
+    "134", "136", "141", "150", "157", "175", "180", "182", "183", "185",
+    "191", "192", "196"
 ]
 
 # -------------------------------------------------------------
-# DICCIONARI DE TAXONOMIA EN CATALÀ (30 CATEGORIES)
+# TAXONOMIA (30 CATEGORIES)
 # -------------------------------------------------------------
 TAXONOMIA = {
     "Bosses i equipatge": [
@@ -211,10 +203,6 @@ TAXONOMIA = {
     "No identificable": ["No identificable"]
 }
 
-# -------------------------------------------------------------
-# COLORS EN CATALÀ (I MAPEI AL VALOR CANÒNIC)
-# -------------------------------------------------------------
-# Mostrem l'etiqueta en català a l'usuari i guardem el canònic a la base de dades
 COLORS_MAP = {
     "Negre": "negro",
     "Blanc": "blanco",
@@ -232,128 +220,101 @@ COLORS_MAP = {
     "Platejat": "plateado"
 }
 
-# -------------------------------------------------------------
-# ETIQUETES DE DETALLS VISUALS EN CATALÀ
-# -------------------------------------------------------------
 ETIQUETES_DISPONIBLES = [
-    # Estat visible
-    "Estat: Amb rascades / esgarrapades",
-    "Estat: Trencat / amb esquerdes",
-    "Estat: Desgastat",
-    "Estat: Amb taques / brut",
-    "Estat: Peça absent o que falta",
-    
-    # Trets distintius
-    "Trets: Amb adhesius / enganxines",
-    "Trets: Amb pedaç / brodat",
-    "Trets: Amb clauer",
-    "Trets: Amb inicials o nom escrit",
-    "Trets: Amb penjoll o adorn",
-    "Trets: Logotip visible",
-    
-    # Materials i acabats
-    "Material: Cuir / pell",
-    "Material: Metall / metàl·lic",
-    "Material: Plàstic / silicona",
-    "Material: Teixit / roba",
-    "Material: Fusta",
-    "Material: Vidre / ceràmica",
-    "Acabat: Brillant",
-    "Acabat: Mate",
-    "Acabat: Transparent / translúcid",
-    "Acabat: Reflectant / fluorescent",
-    
-    # Estampats
-    "Estampat: Llis",
-    "Estampat: Ratlles",
-    "Estampat: Quadres",
-    "Estampat: Estampat floral",
-    "Estampat: Dibuix / il·lustració",
-    "Estampat: Multicolor",
-    
-    # Elements i tancament
-    "Tancament: Cremallera",
-    "Tancament: Botó / gafet",
-    "Tancament: Velcro",
-    "Tancament: Sivella",
-    "Element: Nanses / tirants",
-    "Element: Butxaques",
-    "Element: Rodes",
-    
-    # Presentació
-    "Presentació: Dins d'una funda",
-    "Presentació: Plegat",
-    "Presentació: En caixa / embalatge"
+    "Estat: Amb rascades / esgarrapades", "Estat: Trencat / amb esquerdes", 
+    "Estat: Desgastat", "Estat: Amb taques / brut", "Estat: Peça absent o que falta",
+    "Trets: Amb adhesius / enganxines", "Trets: Amb pedaç / brodat", "Trets: Amb clauer", 
+    "Trets: Amb inicials o nom escrit", "Trets: Amb penjoll o adorn", "Trets: Logotip visible",
+    "Material: Cuir / pell", "Material: Metall / metàl·lic", "Material: Plàstic / silicona", 
+    "Material: Teixit / roba", "Material: Fusta", "Material: Vidre / ceràmica", 
+    "Acabat: Brillant", "Acabat: Mate", "Acabat: Transparent / translúcid", "Acabat: Reflectant / fluorescent",
+    "Estampat: Llis", "Estampat: Ratlles", "Estampat: Quadres", "Estampat: Estampat floral", 
+    "Estampat: Dibuix / il·lustració", "Estampat: Multicolor",
+    "Tancament: Cremallera", "Tancament: Botó / gafet", "Tancament: Velcro", "Tancament: Sivella", 
+    "Element: Nanses / tirants", "Element: Butxaques", "Element: Rodes",
+    "Presentació: Dins d'una funda", "Presentació: Plegat", "Presentació: En caixa / embalatge"
 ]
 
 # -------------------------------------------------------------
-# FORMULARI STREAMLIT
+# FORMULARI 
 # -------------------------------------------------------------
-with st.form("lost_object_form"):
 
-    # 1. Dades de la pèrdua
-    st.subheader("1. Dades de la pèrdua")
-    loss_date = st.date_input("Dia de la pèrdua")
-    transport = st.radio("Mitjà de transport", ["Metro", "Bus"])
+# 1. Dades de la pèrdua
+st.subheader("1. Dades de la pèrdua")
+loss_date = st.date_input("Dia de la pèrdua")
+transport = st.radio("Mitjà de transport", ["Metro", "Bus"], horizontal=True)
 
-    if transport == "Metro":
-        lines = st.multiselect("Línia o línies de metro", METRO_LINES)
-    else:
-        lines = st.multiselect(
-            "Línia o línies d'autobús", 
-            BUS_LINES, 
-            placeholder="Selecciona una o més línies (ex: D20, H6, V1, 59...)"
-        )
-
-    # 2. Característiques de l'objecte
-    st.subheader("2. Característiques de l'objecte")
-    category = st.selectbox("Categoria", list(TAXONOMIA.keys()))
-    subcategory = st.selectbox("Subcategoria", TAXONOMIA[category])
-
-    colors_selected = st.multiselect(
-        "Colors principals (màxim 2)",
-        list(COLORS_MAP.keys()),
-        max_selections=2,
-        placeholder="Tria fins a 2 colors"
+# Actualització en directe de les línies segons el mitjà triat
+if transport == "Metro":
+    lines = st.multiselect(
+        "Línia o línies de metro",
+        METRO_LINES,
+        placeholder="Tria una o més línies de metro (ex: METRO_L1, METRO_L3...)"
+    )
+else:
+    lines = st.multiselect(
+        "Línia o línies d'autobús", 
+        BUS_LINES, 
+        placeholder="Tria una o més línies de bus (ex: D20, H6, V1, 59...)"
     )
 
-    brand = st.text_input("Marca (opcional, màx. 100 caràcters)", max_chars=100)
+st.divider()
 
-    # 3. Etiquetes i detalls visuals
-    st.subheader("3. Detalls i etiquetes visuals")
-    tags = st.multiselect(
-        "Etiquetes opcionals de característiques de l'objecte",
-        ETIQUETES_DISPONIBLES,
-        placeholder="Afegeix etiquetes descriptives (estat, material, acabat...)"
-    )
+# 2. Característiques de l'objecte
+st.subheader("2. Característiques de l'objecte")
+category = st.selectbox("Categoria", list(TAXONOMIA.keys()))
 
-    description = st.text_area(
-        "Descripció escrita / detalls addicionals (màx. 500 caràcters)",
-        max_chars=500,
-        help="Si la subcategoria triada és 'Altres', cal descriure l'objecte obligatòriament aquí."
-    )
+# Actualització en directe de la subcategoria segons la categoria triada
+subcategory = st.selectbox("Subcategoria", TAXONOMIA[category])
 
-    photo = st.file_uploader(
-        "Foto (opcional)", 
-        type=["jpg", "jpeg", "png"]
-    )
+colors_selected = st.multiselect(
+    "Colors principals (màxim 2)",
+    list(COLORS_MAP.keys()),
+    max_selections=2,
+    placeholder="Tria fins a 2 colors"
+)
 
-    # 4. Dades de contacte
-    st.subheader("4. Dades de contacte")
-    contact_email = st.text_input("Correu electrònic")
-    contact_phone = st.text_input("Telèfon")
+brand = st.text_input("Marca (opcional, màx. 100 caràcters)", max_chars=100)
 
-    consent = st.checkbox(
-        "Autoritzo TMB a conservar les dades i contactar-me si es troba una coincidència."
-    )
+st.divider()
 
-    submitted = st.form_submit_button("Enviar sol·licitud")
+# 3. Etiquetes i detalls visuals
+st.subheader("3. Detalls i etiquetes visuals")
+tags = st.multiselect(
+    "Etiquetes opcionals de característiques de l'objecte",
+    ETIQUETES_DISPONIBLES,
+    placeholder="Afegeix etiquetes descriptives (estat, material, acabat...)"
+)
+
+description = st.text_area(
+    "Descripció escrita / detalls addicionals (màx. 500 caràcters)",
+    max_chars=500,
+    help="Si la subcategoria triada és 'Altres', cal descriure l'objecte obligatòriament aquí."
+)
+
+photo = st.file_uploader(
+    "Foto (opcional)", 
+    type=["jpg", "jpeg", "png"]
+)
+
+st.divider()
+
+# 4. Dades de contacte
+st.subheader("4. Dades de contacte")
+contact_email = st.text_input("Correu electrònic")
+contact_phone = st.text_input("Telèfon")
+
+consent = st.checkbox(
+    "Autoritzo TMB a conservar les dades i contactar-me si es troba una coincidència."
+)
+
+# Botó d'enviament directe
+submitted = st.button("Enviar sol·licitud", type="primary")
 
 # -------------------------------------------------------------
 # LÒGICA DE VALIDACIÓ I PROCESSAMENT
 # -------------------------------------------------------------
 if submitted:
-    # Agrupar les etiquetes seleccionades i la descripció al camp detalls
     detalls_parts = []
     if tags:
         detalls_parts.append("Etiquetes: " + ", ".join(tags))
@@ -361,17 +322,13 @@ if submitted:
         detalls_parts.append(description.strip())
     detalles_finals = ". ".join(detalls_parts)
 
-    # Mapeig dels colors triats al valor canònic que requereix el catàleg
     colores_canonicos = [COLORS_MAP[c] for c in colors_selected]
-
-    # Prefix normalitzat de línies per a la base de dades
     linies_canoniques = [f"BUS_{l}" for l in lines] if transport == "Bus" else lines
 
-    # Validacions
     if not category:
         st.error("Cal indicar una categoria.")
     elif subcategory == "Altres" and not detalles_finals.strip():
-        st.error("Per a la subcategoria 'Altres' és obligatori afegir etiquetes o descriure l'objecte.")
+        st.error("Per a la subcategoria 'Altres' és obligatori afegir etiquetes o descriure l'objecte als detalls.")
     elif not consent:
         st.error("Cal donar consentiment per conservar la sol·licitud.")
     else:
@@ -388,5 +345,5 @@ if submitted:
                 "telefon": contact_phone.strip()
             }
         }
-        st.success("Sol·licitud registrada correctament.")
+        st.success("Sol·licitud registrada correctament!")
         st.json(registre)
