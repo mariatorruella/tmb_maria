@@ -33,7 +33,7 @@ def obtenir_seguent_id(fitxer="counter.txt", valor_inicial=1):
 # -------------------------------------------------------------
 @st.cache_data
 def carregar_cataleg():
-    ruta = Path(__file__).parent / "catalogo.json"
+    ruta = Path(__file__).parent / "cataleg.json"
     with open(ruta, "r", encoding="utf-8") as f:
         return json.load(f)
 
