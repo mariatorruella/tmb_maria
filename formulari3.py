@@ -9,11 +9,31 @@ st.set_page_config(
 )
 
 # -------------------------------------------------------------
+# CONTROL DEL COMPTADOR D'ID (7 DÍGITS ASCENDENT)
+# -------------------------------------------------------------
+def obtenir_seguent_id(fitxer="counter.txt", valor_inicial=1):
+    ruta_fitxer = Path(__file__).parent / fitxer
+    if not ruta_fitxer.exists():
+        seguent_id = valor_inicial
+    else:
+        try:
+            with open(ruta_fitxer, "r", encoding="utf-8") as f:
+                contingut = f.read().strip()
+                seguent_id = int(contingut) + 1 if contingut else valor_inicial
+        except (ValueError, OSError):
+            seguent_id = valor_inicial
+
+    with open(ruta_fitxer, "w", encoding="utf-8") as f:
+        f.write(str(seguent_id))
+
+    return str(seguent_id).zfill(7)
+
+# -------------------------------------------------------------
 # CARREGAR DADES
 # -------------------------------------------------------------
 @st.cache_data
 def carregar_cataleg():
-    ruta = Path(__file__).parent / "cataleg.json"
+    ruta = Path(__file__).parent / "catalogo.json"
     with open(ruta, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -24,7 +44,7 @@ lineas = data.get("transporte", {}).get("lineas", [])
 METRO_LINES = [l["id"] for l in lineas if l.get("medio") == "metro" and l.get("activa", True)]
 BUS_LINES = [l["nombre"] for l in lineas if l.get("medio") == "bus" and l.get("activa", True)]
 
-# Taxonomia directa del JSON
+# Taxonomia
 subcats_comunes = data.get("subcategories_comunes", ["Altres", "No identificable"])
 TAXONOMIA = {
     cat["nombre"]: cat.get("subcategorias", []) + [s for s in subcats_comunes if s not in cat.get("subcategorias", [])]
@@ -82,7 +102,7 @@ consent = st.checkbox("Autoritzo TMB a conservar les dades i contactar-me si es 
 submitted = st.button("Enviar sol·licitud", type="primary")
 
 # -------------------------------------------------------------
-# ENVIAMENT
+# ENVIAMENT I ASSIGNACIÓ D'ID
 # -------------------------------------------------------------
 if submitted:
     detalls_parts = []
@@ -101,7 +121,11 @@ if submitted:
     elif not consent:
         st.error("Cal donar consentiment per conservar la sol·licitud.")
     else:
+        # Generem el següent identificador de 7 dígits
+        nou_id = obtenir_seguent_id()
+
         registre = {
+            "id_reclamacio": nou_id,
             "categoria": category,
             "subcategoria": subcategory,
             "colors": colors_selected,
@@ -114,5 +138,6 @@ if submitted:
                 "telefon": contact_phone.strip()
             }
         }
-        st.success("Sol·licitud registrada correctament!")
+        
+        st.success(f"Sol·licitud registrada correctament! El teu codi de seguiment és: **#{nou_id}**")
         st.json(registre)
